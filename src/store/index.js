@@ -5,11 +5,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    token: ''
   },
   mutations: {
+    addToken (state, flag) {
+      state.token = flag
+    }
   },
-  actions: {
+  getters: {
+    getToken: (state, getters) => {
+      return state.token
+    }
   },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })
