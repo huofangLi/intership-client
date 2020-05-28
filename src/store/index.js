@@ -10,13 +10,20 @@ export default new Vuex.Store({
   mutations: {
     addToken (state, flag) {
       state.token = flag
+    },
+    addUsername (state, flag) {
+      state.username = flag
     }
   },
   getters: {
     getToken: (state, getters) => {
       return state.token
+    },
+    getUsername: (state, getters) => {
+      return state.username
     }
   },
   actions: {},
   modules: {}
 })
+

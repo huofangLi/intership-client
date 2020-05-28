@@ -1,13 +1,12 @@
-<!--考勤管理-->
 <template>
-  <div>
-
-  </div>
+<div>
+  共享中心
+</div>
 </template>
 
 <script>
   export default {
-    name: 'attendanceManagement'
+    name: 'sharingCenter'
   }
 </script>
 

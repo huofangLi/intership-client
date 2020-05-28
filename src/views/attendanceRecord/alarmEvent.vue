@@ -1,13 +1,12 @@
-<!--考勤管理-->
 <template>
-  <div>
-
-  </div>
+    <div>
+      告警事件
+    </div>
 </template>
 
 <script>
   export default {
-    name: 'attendanceManagement'
+    name: 'alarmEvent'
   }
 </script>
 

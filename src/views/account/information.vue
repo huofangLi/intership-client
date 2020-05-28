@@ -1,13 +1,10 @@
-<!--考勤管理-->
 <template>
-  <div>
 
-  </div>
 </template>
 
 <script>
   export default {
-    name: 'attendanceManagement'
+    name: 'information'
   }
 </script>
 

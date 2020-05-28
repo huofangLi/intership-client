@@ -5,11 +5,15 @@
         <h3 class="login_title">校企实习服务平台</h3>
 
         <el-form-item prop="account">
-          <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="账号"></el-input>
+          <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="账号">
+            <el-button slot="prepend" icon="el-icon-user"></el-button>
+          </el-input>
         </el-form-item>
 
         <el-form-item prop="checkPass">
-          <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
+          <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码">
+            <el-button slot="prepend" icon="el-icon-lock"></el-button>
+          </el-input>
         </el-form-item>
 
         <el-checkbox class="login_remember" v-model="checked" label-position="left">记住密码</el-checkbox>
@@ -58,22 +62,25 @@
           if (result.status == 200) {
             // 存储本次登录的token
             var token = result.data.id_token
-            this.$store.commit('addToken', token)
-            this.$router.push('/')
+            // this.$store.commit('addToken', token)
+            // this.$store.commit('addUsername', this.loginForm.username)
+            localStorage.setItem('token', token)
+            localStorage.setItem('username', this.loginForm.username)
+            this.$router.push('/index')
+            this.$router.push('/homepage')
+            // localStorage.setItem()
           } else {
-
+            console.log('接口返回错误！')
           }
         })
-      },
-
+      }
     }
   }
 </script>
 
 <style scoped>
   .login-wrap {
-
-    /*background-image: url('../assets/img/login-bg.jpg');*/
+    background-image: url("../../assets/login-bg.jpg");
     /* 背景图垂直、水平均居中 */
     background-position: center center;
     /* 背景图不平铺 */
@@ -95,8 +102,7 @@
     left: 50%;
     top: 50%;
     width: 350px;
-    margin: 0px 0 0 -175px;
-    border-radius: 5px;
+    margin: 150px 0 0 -175px;
     background: rgba(255, 255, 255, 0.3);
     overflow: hidden;
   }
@@ -105,6 +111,8 @@
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
   }
 
   .login_title {
