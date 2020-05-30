@@ -47,7 +47,7 @@
                 <i class="el-icon-message-solid"></i>
               </el-menu-item>
               <el-submenu index="8">
-                <template slot="title">学生：{{username}}</template>
+                <template slot="title">学生：{{user.lastName}}</template>
                 <el-menu-item index="8.1">
                   个人信息
                 </el-menu-item>
@@ -67,44 +67,58 @@
 </template>
 
 <script>
-  export default {
-    name: 'index',
-    data () {
-      return {
-        activeIndex: '1',
-        username: ''
-      }
-    },
-    mounted () {
-      this.username = this.$store.state.username
-      // console.log('store username', this.username)
-      // this.getUser(this.username)
-    },
-    methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
-        if (key == 1) {
+export default {
+  name: 'index',
+  data () {
+    return {
+      activeIndex: '1',
+      username: '',
+      user: {}
+    }
+  },
+  mounted () {
+    this.getUser(localStorage.getItem('username'))
+  },
+  methods: {
+    getUser (username) {
+      this.$http.get(this.$serverPath + '/api/users/' + username, {}).then((result) => {
+        if (result.status == 200) {
+          this.user = result.data
+          localStorage.setItem('userId', result.data.id)
+          localStorage.setItem('user', JSON.stringify(result.data))
+          // console.log('userId', localStorage.getItem('user'))
+          // console.log('getUser callback', this.user)
           this.$router.push('/homepage')
-        } else if (key == 2.1) {
-          this.$router.push('/sharing_center')
-        } else if (key == 3) {
-          this.$router.push('/intership')
-        } else if (key == 4.1) {
-          this.$router.push('/attendance_record')
-        } else if (key == 4.2) {
-          this.$router.push('/alarm_event')
-        } else if (key == 5) {
-          this.$router.push('/graduation_project')
-        } else if (key == 6) {
-          this.$router.push('/certificate')
-        } else if (key == 8.1) {
-          this.$router.push('/information')
-        } else if (key == 8.2) {
-          this.$router.push('/login')
+        } else {
+          console.log('接口请求错误')
         }
+      })
+    },
+    handleSelect (key, keyPath) {
+      console.log(key, keyPath)
+      if (key == 1) {
+        this.$router.push('/homepage')
+      } else if (key == 2.1) {
+        this.$router.push('/sharing_center')
+      } else if (key == 3) {
+        this.$router.push('/intership')
+      } else if (key == 4.1) {
+        this.$router.push('/attendance_record')
+      } else if (key == 4.2) {
+        this.$router.push('/alarm_event')
+      } else if (key == 5) {
+        this.$router.push('/graduation_project')
+      } else if (key == 6) {
+        this.$router.push('/certificate')
+      } else if (key == 8.1) {
+        this.$router.push('/information')
+      } else if (key == 8.2) {
+        localStorage.clear()
+        this.$router.push('/login')
       }
     }
   }
+}
 </script>
 
 <style scoped>

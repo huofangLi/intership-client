@@ -26,56 +26,55 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        rules: {
-          account: [{
-            required: true,
-            message: '请输入账号',
-            trigger: 'blur'
-          }],
-          checkPass: [{
-            required: true,
-            message: '请输入密码',
-            trigger: 'blur'
-          }]
-        },
-        checked: true,
-        loginForm: {
-          username: 'admin',
-          password: 'admin'
-        },
-        loading: false
-      }
-    },
-    created () {
-    },
-    methods: {
-      submitClick () {
-        this.$http.post(this.$serverPath + '/api/authenticate', {
-          password: this.loginForm.password,
-          rememberMe: true,
-          username: this.loginForm.username
-        }).then((result) => {
-          console.log('login callback', result)
-          if (result.status == 200) {
-            // 存储本次登录的token
-            var token = result.data.id_token
-            // this.$store.commit('addToken', token)
-            // this.$store.commit('addUsername', this.loginForm.username)
-            localStorage.setItem('token', token)
-            localStorage.setItem('username', this.loginForm.username)
-            this.$router.push('/index')
-            this.$router.push('/homepage')
-            // localStorage.setItem()
-          } else {
-            console.log('接口返回错误！')
-          }
-        })
-      }
+export default {
+  data () {
+    return {
+      rules: {
+        account: [{
+          required: true,
+          message: '请输入账号',
+          trigger: 'blur'
+        }],
+        checkPass: [{
+          required: true,
+          message: '请输入密码',
+          trigger: 'blur'
+        }]
+      },
+      checked: true,
+      loginForm: {
+        username: 'admin',
+        password: 'admin'
+      },
+      loading: false
+    }
+  },
+  created () {
+  },
+  methods: {
+    submitClick () {
+      this.$http.post(this.$serverPath + '/api/authenticate', {
+        password: this.loginForm.password,
+        rememberMe: true,
+        username: this.loginForm.username
+      }).then((result) => {
+        console.log('login callback', result)
+        if (result.status == 200) {
+          // 存储本次登录的token
+          var token = result.data.id_token
+          // this.$store.commit('addToken', token)
+          // this.$store.commit('addUsername', this.loginForm.username)
+          localStorage.setItem('token', token)
+          localStorage.setItem('username', this.loginForm.username)
+          this.$router.push('/index')
+          // this.$router.push('/homepage')
+        } else {
+          console.log('接口返回错误！')
+        }
+      })
     }
   }
+}
 </script>
 
 <style scoped>

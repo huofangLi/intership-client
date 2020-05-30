@@ -79,6 +79,20 @@ const routes = [
       meta: {
         title: '毕业设计'
       },
+    }, {
+      path: '/changeOfPractice',
+      name: 'changeOfPractice',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/changeOfPractice.vue'),
+      meta: {
+        title: '变更实习类型'
+      }
+    }, {
+      path: '/internshipRegistration',
+      name: 'InternshipRegistration',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/internshipRegistration.vue'),
+      meta: {
+        title: '实习登记'
+      }
     }
     ]
   }
