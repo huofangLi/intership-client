@@ -93,6 +93,34 @@ const routes = [
       meta: {
         title: '实习登记'
       }
+    },{
+      path: '/intershipTask',
+      name: 'InternshipRegistration',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/intershipTask.vue'),
+      meta: {
+        title: '查看实习任务'
+      }
+    },{
+      path: '/intershipReport',
+      name: 'InternshipRegistration',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/intershipReport.vue'),
+      meta: {
+        title: '查看实习报告'
+      }
+    }, {
+      path: '/intershipResults',
+      name: 'InternshipRegistration',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/intershipResults.vue'),
+      meta: {
+        title: '查看实习成绩'
+      }
+    }, {
+      path: '/attendanceManagement',
+      name: 'InternshipRegistration',
+      component: () => import(/* webpackChunkName: "about" */ '../views/intership/attendanceManagement.vue'),
+      meta: {
+        title: '查看考勤管理'
+      }
     }
     ]
   }

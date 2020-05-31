@@ -13,17 +13,17 @@
               <div class="data-box-two">
                 <div class="data-box-data">
                   <div class="data-box-hint"><span class="x">*</span>企业信用代码：</div>
-                  <div class="data-box-input"><el-input placeholder="请输入企业信用代码" v-model="input" clearable style="width: 100%;"></el-input></div>
+                  <div class="data-box-input"><el-input placeholder="请输入企业信用代码" v-model="xydm" clearable style="width: 100%;"></el-input></div>
                 </div>
 
                 <div class="data-box-data">
                   <div class="data-box-hint"><span class="x">*</span>企业名称：</div>
-                  <div class="data-box-input"><el-input placeholder="请输入企业名称" v-model="input" clearable style="width: 100%;"></el-input></div>
+                  <div class="data-box-input"><el-input placeholder="请输入企业名称" v-model="qymc" clearable style="width: 100%;"></el-input></div>
                 </div>
 
                 <div class="data-box-data">
                   <div class="data-box-hint"><span class="x">*</span>实习岗位：</div>
-                  <div class="data-box-input"><el-input placeholder="请输入实习岗位" v-model="input" clearable style="width: 100%;"></el-input></div>
+                  <div class="data-box-input"><el-input placeholder="请输入实习岗位" v-model="sxgw" clearable style="width: 100%;"></el-input></div>
                 </div>
 
                 <div class="data-box-data1">
@@ -35,9 +35,9 @@
                       <span class="data-box-name-hint"><span class="x">*</span>电话</span>
                     </div>
                     <div class="data-box-name-box">
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="qynx" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="qyzw" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="qydh" clearable style="height: 25px; width: 100%;"></el-input></div>
                     </div>
                   </div>
                 </div>
@@ -51,9 +51,9 @@
                       <span class="data-box-name-hint">电话</span>
                     </div>
                     <div class="data-box-name-box">
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                      <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="sfxm" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="sfjn" clearable style="height: 25px; width: 100%;"></el-input></div>
+                      <div class="data-box-name-input"><el-input v-model="sfdh" clearable style="height: 25px; width: 100%;"></el-input></div>
                     </div>
                   </div>
                 </div>
@@ -67,9 +67,9 @@
                      <span class="data-box-name-hint"><span class="x">*</span>地址</span>
                    </div>
                    <div class="data-box-name-box">
-                     <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                     <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
-                     <div class="data-box-name-input"><el-input v-model="input" clearable style="height: 25px; width: 100%;"></el-input></div>
+                     <div class="data-box-name-input"><el-input v-model="jjxm" clearable style="height: 25px; width: 100%;"></el-input></div>
+                     <div class="data-box-name-input"><el-input v-model="jjdh" clearable style="height: 25px; width: 100%;"></el-input></div>
+                     <div class="data-box-name-input"><el-input v-model="jjdz" clearable style="height: 25px; width: 100%;"></el-input></div>
                    </div>
                  </div>
                </div>
@@ -85,7 +85,7 @@
 
                <div class="data-box-data">
                  <div class="data-box-hint"><span class="x">*</span>住宿地址：</div>
-                 <div class="data-box-input"><el-input v-model="input" clearable style="width: 100%;"></el-input></div>
+                 <div class="data-box-input"><el-input v-model="zsdz" clearable style="width: 100%;"></el-input></div>
                </div>
 
                <div class="data-box-data">
@@ -99,7 +99,7 @@
 
                <div class="data-box-data">
                  <div class="data-box-hint"><span class="x">*</span>企业详细地址：</div>
-                 <div class="data-box-input"><el-input v-model="input" clearable style="width: 100%;"></el-input></div>
+                 <div class="data-box-input"><el-input v-model="qyxxdz" clearable style="width: 100%;"></el-input></div>
                </div>
 
                <div class="data-box-data2">
@@ -132,7 +132,7 @@
                <div class="data-box-data2">
                  <div class="data-box-hint">企业简介：</div>
                  <div class="data-box-input">
-                   <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="textarea2"></el-input>
+                   <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="qyjj"></el-input>
                  </div>
                </div>
 
@@ -146,7 +146,7 @@
 
                <div class="data-box-data">
                  <div class="data-box-hint"></span>保险公司及保险号：</div>
-                 <div class="data-box-input"><el-input v-model="input" clearable style="width: 100%;"></el-input></div>
+                 <div class="data-box-input"><el-input v-model="bxh" clearable style="width: 100%;"></el-input></div>
                </div>
 
                <div class="data-box-data2">
@@ -256,6 +256,21 @@
      data() {
            return {
              newly:false,
+             xydm:'',
+             qymc:'',
+             sxgw:'',
+             qynx:'',
+             qyzw:'',
+             qydh:'',
+             sfxm:'',
+             sfjn:'',
+             sfdh:'',
+             jjxm:'',
+             jjdh:'',
+             jjdz:'',
+             zsdz:'',
+             qyxxdz:'',
+             bxh:'',
              input1:'',
              input2:'',
              input3:'',
@@ -265,7 +280,7 @@
              nature:'',
              scale:'',
              industry:'',
-             textarea2:'',
+             qyjj:'',
              radio1:'',
              radio2:'',
              radio3:'',

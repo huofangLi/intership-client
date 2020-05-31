@@ -9,7 +9,7 @@
           <p class="title">正在进行的实习</p>
         </div>
         <div class="top-right">
-          <el-button type="danger" plain round @click="change1">变更实习类型</el-button>
+          <el-button type="danger" plain round @click="changeOfPractice">变更实习类型</el-button>
         </div>
       </div>
       <!-- 数据-->
@@ -23,11 +23,11 @@
           </div>
           <div class="data-box">
             <div class="data-box-btn">
-              <button
+              <button @click="attendanceManagement"
                 style="height: 100%; margin-left: 1%; background-color: rgb(238, 238, 238); color:rgb(40, 150, 221) ; ">
                 查看考勤管理
               </button>
-              <button
+              <button @click="intershipResults"
                 style="height: 100%; margin-left: 1%; background-color: rgb(238, 238, 238); color:rgb(40, 150, 221) ;">
                 查看实习成绩
               </button>
@@ -35,11 +35,11 @@
                 style="height: 100%; margin-left: 1%; background-color: rgb(238, 238, 238); color:rgb(40, 150, 221) ;">
                 查看实习报告
               </button>
-              <button
+              <button @click="intershipTask"
                 style="height: 100%; margin-left: 1%; background-color: rgb(238, 238, 238); color:rgb(40, 150, 221) ;">
                 查看实习任务
               </button>
-              <button @click="change6"
+              <button @click="internshipRegistration"
                       style="height: 100%; margin-left: 1%; background-color: rgb(238, 238, 238); color:rgb(40, 150, 221) ;">
                 实习登记(已登记)
               </button>
@@ -103,12 +103,27 @@ export default {
   onShow () {
   },
   methods: {
-    change1 () {
+    /* 变更实习类型*/
+    changeOfPractice () {
       this.$router.push('/changeOfPractice')
     },
-    change6 () {
+    /* 实习登记*/
+    internshipRegistration () {
       this.$router.push('/internshipRegistration')
-    }
+    },
+    /* 实习任务*/
+    intershipTask () {
+      this.$router.push('/intershipTask')
+    },
+    /* 实习成绩*/
+    intershipResults () {
+      this.$router.push('/intershipResults')
+    },
+    /* 考勤管理 */
+    attendanceManagement () {
+      this.$router.push('/attendanceManagement')
+    },
+
   }
 }
 </script>
